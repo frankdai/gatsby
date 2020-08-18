@@ -5,6 +5,8 @@
 $kaldi-red: #D64000
 $kaldi-red-invert: #fff
 
+$main-branding: #233250
+
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 $body-color: #333
@@ -81,8 +83,8 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: transparent
+  padding: 3em
+  background-color: $main-branding
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -138,3 +140,20 @@ $menu-label-color: $white-ter
     text-align: center;
     max-width: 70%;
     margin: 0 0 1em;
+
+.mtor-navbar-container
+  font-size: 16px
+  color: white
+  background: $main-branding
+  .mtor-navbar
+    display: flex
+  .mtor-navbar-item
+    margin: 0 6px
+    font-size: 16px
+    padding: 12px
+    text-transform: uppercase
+    font-weight: bold
+    &:hover
+      background: lighten($main-branding, 15%)
+  a
+    color: inherit
