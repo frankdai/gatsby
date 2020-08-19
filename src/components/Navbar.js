@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
+import SubMenuService from "./SubMenuService";
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -9,27 +10,18 @@ const Navbar = class extends React.Component {
     this.state = {
       active: false,
       navBarActiveClass: '',
+      showServiceSubMenu: false
     }
-  }
-
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
+    this.onMouseOver = () => {
+      this.setState({
+        showServiceSubMenu: true
+      })
+    }
+    this.onMouseLeave = () => {
+      this.setState({
+        showServiceSubMenu: false
+      })
+    }
   }
 
   render() {
@@ -60,9 +52,10 @@ const Navbar = class extends React.Component {
               <Link className="mtor-navbar-item" to="/contact">
                 Contact
               </Link>
-              {/*<Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>*/}
+              <div className="mtor-navbar-item has-sub-menu" onMouseEnter={this.onMouseOver} onMouseLeave={this.onMouseLeave}>
+                <div>Services</div>
+                <SubMenuService show={this.state.showServiceSubMenu} />
+              </div>
             </div>
           </div>
         </div>

@@ -153,7 +153,20 @@ $menu-label-color: $white-ter
     padding: 12px
     text-transform: uppercase
     font-weight: bold
+    position: relative
     &:hover
       background: lighten($main-branding, 15%)
   a
     color: inherit
+
+.mtor-sub-menu
+  position: absolute
+  background: lighten($main-branding, 35%)
+  top: 48px
+  left: 0
+  text-transform: none
+  min-width: 100%
+  li
+    padding: 4px 12px
+    &:hover
+      background: lighten($main-branding, 45%)
