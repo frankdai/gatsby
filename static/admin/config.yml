@@ -33,6 +33,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service"}
+      - {label: "Content Type", name: "contentType", widget: "select", options: ["service", "quality", "manufacturing"]}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"

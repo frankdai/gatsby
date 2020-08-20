@@ -10,16 +10,17 @@ const Navbar = class extends React.Component {
     this.state = {
       active: false,
       navBarActiveClass: '',
-      showServiceSubMenu: false
+      showServiceSubMenu: false,
+      showQualitySubMenu: false
     }
-    this.onMouseOver = () => {
+    this.onMouseOver = (name) => {
       this.setState({
-        showServiceSubMenu: true
+        [`show${name}SubMenu`]: true
       })
     }
-    this.onMouseLeave = () => {
+    this.onMouseLeave = (name) => {
       this.setState({
-        showServiceSubMenu: false
+        [`show${name}SubMenu`]: false
       })
     }
   }
@@ -40,6 +41,9 @@ const Navbar = class extends React.Component {
             id="navMenu"
           >
             <div className="mtor-navbar container">
+              <Link className="mtor-navbar-item" to="/">
+                Home
+              </Link>
               <Link className="mtor-navbar-item" to="/about">
                 About
               </Link>
@@ -52,9 +56,13 @@ const Navbar = class extends React.Component {
               <Link className="mtor-navbar-item" to="/contact">
                 Contact
               </Link>
-              <div className="mtor-navbar-item has-sub-menu" onMouseEnter={this.onMouseOver} onMouseLeave={this.onMouseLeave}>
+              <div className="mtor-navbar-item has-sub-menu" onMouseEnter={() => this.onMouseOver('Service')} onMouseLeave={() => this.onMouseLeave('Service')}>
                 <div>Services</div>
-                <SubMenuService show={this.state.showServiceSubMenu} />
+                <SubMenuService show={this.state.showServiceSubMenu} type={'service'}/>
+              </div>
+              <div className="mtor-navbar-item has-sub-menu" onMouseEnter={() => this.onMouseOver('Quality')} onMouseLeave={() => this.onMouseLeave('Quality')}>
+                <div>Quality</div>
+                <SubMenuService show={this.state.showQualitySubMenu} type={'quality'}/>
               </div>
             </div>
           </div>

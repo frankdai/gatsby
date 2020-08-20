@@ -4,13 +4,15 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 
 class SubMenuService extends React.Component {
   render() {
-    const { data, show } = this.props
+    const { data, show, type } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
       <ul className="mtor-sub-menu" style={{display: show?'block':'none'}}>
         {posts &&
-          posts.map(({ node: post }) => (
+          posts.filter(({ node: post }) => {
+            return post.frontmatter.contentType === type
+          }).map(({ node: post }) => (
             <li title={post.slug}>
               <Link
                   className="mtor-sub-menu-item"
@@ -37,7 +39,7 @@ export default (props) => (
     query={graphql`
       query SubMenuServiceQuery {
         allMarkdownRemark(
-          sort: { order: ASC, fields: [frontmatter___date] }
+          sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "service" } } }
         ) {
           edges {
@@ -50,12 +52,13 @@ export default (props) => (
               frontmatter {
                 title
                 templateKey
+                contentType
               }
             }
           }
         }
       }
     `}
-    render={(data) => <SubMenuService data={data} show={props.show}/>}
+    render={(data) => <SubMenuService data={data} show={props.show} type={props.type}/>}
   />
 )
