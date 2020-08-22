@@ -13,7 +13,7 @@ class SubMenuService extends React.Component {
           posts.filter(({ node: post }) => {
             return post.frontmatter.contentType === type
           }).map(({ node: post }) => (
-            <li title={post.slug}>
+            <li title={post.slug} key={post.slug}>
               <Link
                   className="mtor-sub-menu-item"
                   to={post.fields.slug}>
@@ -39,7 +39,7 @@ export default (props) => (
     query={graphql`
       query SubMenuServiceQuery {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: { order: ASC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "service" } } }
         ) {
           edges {
