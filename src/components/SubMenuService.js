@@ -12,8 +12,8 @@ class SubMenuService extends React.Component {
         {posts &&
           posts.filter(({ node: post }) => {
             return post.frontmatter.contentType === type
-          }).map(({ node: post }) => (
-            <li title={post.slug} key={post.slug}>
+          }).map(({ node: post }, index) => (
+            <li title={post.slug} key={post.id}>
               <Link
                   className="mtor-sub-menu-item"
                   to={post.fields.slug}>

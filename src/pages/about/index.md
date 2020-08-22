@@ -1,19 +1,13 @@
 ---
 templateKey: 'about-page'
 path: /about
-title: About our values
+title: About Us
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+Metallor was established in April 2019 by Mr. Alfred E. Simmons and Mr. TD Cheng. We are a privately owned company with good financial standing.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+Metallor is the pioneer to bringing the plumbing industry to Taiwan. Throughout the years, we have expanded our expertise from plumbing to other industries such as heating, air conditioning, pneumatic, fluid valves, conduit fittings, hardware, and electronics.  
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+Metallor is currently headquartered in Taipei with a branch office in Shanghai and sales offices in Hong Kong, Thailand, and New York. In addition, we have a total of seven inspection offices throughout our major manufacturing locations in Taiwan and China. 
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Over the years, SIL has successfully established long-term relationships with several leading companies in specific industries, including many Fortune 500 companies.
+SIL provides customers with a reliable supply-chain by linking customers and manufacturers on sourcing, product development, engineering, logistics, and quality systems.

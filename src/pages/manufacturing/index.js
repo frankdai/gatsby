@@ -15,14 +15,16 @@ export default class BlogIndexPage extends React.Component {
                 >
                 </div>
                 <section className="section">
-                    <div className="container">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            Manufacturing
-                        </h1>
-                        <p>
-                            Metallor is knowledgeable across a wide variety of manufacturing processes. With over 100 sub-contracting factories, we are capable to provide a wide range of products, from metallic to plastic, machineries to electronics.
-                        </p>
-                        <h3>Our manufacturing capabilities include:</h3>
+                    <div className="container column is-10 is-offset-1">
+                        <div>
+                            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                                Manufacturing
+                            </h1>
+                            <p>
+                                Metallor is knowledgeable across a wide variety of manufacturing processes. With over 100 sub-contracting factories, we are capable to provide a wide range of products, from metallic to plastic, machineries to electronics.
+                            </p>
+                            <h3 className="has-text-weight-bold is-bold-light">Our manufacturing capabilities include:</h3>
+                        </div>
                         <div className="content">
                             <ManufacturingList />
                         </div>

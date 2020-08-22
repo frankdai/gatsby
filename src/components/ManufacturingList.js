@@ -11,10 +11,11 @@ class BlogRoll extends React.Component {
     return (
       <div className="columns is-multiline">
         {posts &&
-          posts.map(({ node: post }) => (
+        posts.map(({ node: post }) => (
             <div className="column is-4" key={post.id}>
-              <article
-                className="blog-list-item tile is-child box"
+              <a
+                  href={post.fields.slug}
+                  className="manufacutring-list-item tile is-child box"
               >
                 <PreviewCompatibleImage
                     imageInfo={{
@@ -22,10 +23,10 @@ class BlogRoll extends React.Component {
                       alt: `${post.frontmatter.title}`,
                     }}
                 />
-                <h3>{post.frontmatter.title}</h3>
-              </article>
+                <h4>{post.frontmatter.title}</h4>
+              </a>
             </div>
-          ))}
+        ))}
       </div>
     )
   }

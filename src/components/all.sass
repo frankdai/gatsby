@@ -114,17 +114,6 @@ $menu-label-color: $white-ter
     vertical-align: middle
     display: inline
 
-// blog roll
-.blog-list-item.is-featured
-  background-color: #d6400033;
-.blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
-.blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
-
-
 @import "~bulma"
 
 
@@ -171,3 +160,18 @@ $menu-label-color: $white-ter
     padding: 4px 12px
     &:hover
       background: lighten($main-branding, 35%)
+
+.manufacutring-list-item
+  position: relative
+  padding: 0
+  display: block
+  color: inherit
+  h4
+    position: absolute
+    width: 100%
+    text-align: center
+    bottom: 0
+    margin: 0
+    color: white
+    background: rgba($main-branding, .3)
+    line-height: 36px
