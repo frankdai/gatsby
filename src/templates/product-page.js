@@ -2,33 +2,44 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
-import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import { HTMLContent } from '../components/Content'
+import ImagesRotate from "../components/ImageRotate";
 
 
 export const ProductPageTemplate = ({
-  image,
+  featureImage,
   title,
   content,
-  heading,
-  description,
-  intro,
-  main,
-  testimonials,
-  fullImage,
-  pricing,
+  images
 }) => (
   <div className="content">
-    <h2 className="has-text-weight-bold is-size-1">{title}</h2>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
-            <div className="column is-7 is-offset-1">
+            <div className="column is-11 is-offset-1">
+              <h2 className="has-text-weight-bold is-size-1">{title}</h2>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column is-11 is-offset-1" style={{height: '300px', overflow: 'hidden'}}>
+              <PreviewCompatibleImage
+                imageInfo={{
+                  image: featureImage,
+                  alt: `${title}`,
+                }}
+              />
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column is-11 is-offset-1">
               <HTMLContent content={content} />
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column is-11 is-offset-1">
+              <ImagesRotate images={images} />
             </div>
           </div>
         </div>
@@ -39,13 +50,19 @@ export const ProductPageTemplate = ({
 
 const ProductPage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
-
+  const keys = Object.keys(frontmatter)
+  let images = keys.filter((key)=>{
+    return /^image\d$/.test(key)
+  }).map((k)=>{
+    return frontmatter[k]
+  })
   return (
     <Layout>
       <ProductPageTemplate
-        image={frontmatter.featuredImage}
+        featureImage={frontmatter.featuredImage}
         title={frontmatter.title}
         content={html}
+        images={images}
       />
     </Layout>
   )
@@ -67,9 +84,43 @@ export const productPageQuery = graphql`
       html
       frontmatter {
         title
-        excerpt
         category
         featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image1 {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image2 {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image3 {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image4 {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image5 {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid

@@ -1,16 +1,29 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import {Link, graphql} from 'gatsby'
 import Layout from '../components/Layout'
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 class TagRoute extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map((post) => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
+      <div key={post.node.fields.slug} className="columns">
+        <div className="column picture-wrapper">
+          <PreviewCompatibleImage
+            imageInfo={{
+              //style: {'max-height': '200px'},
+              image: post.node.frontmatter.image1,
+              alt: `${post.node.frontmatter.title}`,
+            }}
+          />
+        </div>
+        <div className="column">
+          <h2 className="is-size-2">
+            <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
+          </h2>
+          <p>{post.node.frontmatter.excerpt}</p>
+        </div>
+      </div>
     ))
     return (
       <Layout>
@@ -19,9 +32,9 @@ class TagRoute extends React.Component {
             <div className="columns">
               <div
                 className="column is-10 is-offset-1"
-                style={{ marginBottom: '6rem' }}
+                style={{marginBottom: '6rem'}}
               >
-                <ul className="products-list">{postLinks}</ul>
+                <div className="products-list">{postLinks}</div>
               </div>
             </div>
           </div>
@@ -49,9 +62,9 @@ export const tagPageQuery = graphql`
           frontmatter {
             title
             excerpt
-            featuredImage {
+            image1 {
               childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
+                fluid(maxWidth: 400, quality: 80) {
                   ...GatsbyImageSharpFluid
                 }
               }

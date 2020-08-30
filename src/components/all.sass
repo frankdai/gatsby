@@ -158,6 +158,8 @@ $menu-label-color: $white-ter
   z-index: 1
   li
     padding: 4px 12px
+    a
+      display: block
     &:hover
       background: lighten($main-branding, 35%)
 
@@ -175,3 +177,21 @@ $menu-label-color: $white-ter
     color: white
     background: rgba($main-branding, .3)
     line-height: 36px
+
+.products-list
+  li
+    list-style: none
+  .picture-wrapper
+    flex-basis: 300px
+    max-width: 300px
+    height: 210px
+    overflow: hidden
+
+.image-rotate
+  display: flex
+  width: 800px
+  margin: 0 auto
+  align-items: center
+  justify-content: space-between
+  .image-center
+    min-width: 400px
