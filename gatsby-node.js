@@ -18,7 +18,8 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               tags
               templateKey,
-              contentType
+              contentType,
+              category
             }
           }
         }
@@ -29,7 +30,7 @@ exports.createPages = ({ actions, graphql }) => {
       result.errors.forEach((e) => console.error(e.toString()))
       return Promise.reject(result.errors)
     }
-
+    let products = []
     const posts = result.data.allMarkdownRemark.edges
     posts.forEach((edge) => {
       let context = {
@@ -37,6 +38,19 @@ exports.createPages = ({ actions, graphql }) => {
       }
       if (edge.node.frontmatter.contentType) {
         context.contentType = edge.node.frontmatter.contentType
+      }
+      if (edge.node.frontmatter.templateKey === 'product-page') {
+        let {category} = edge.node.frontmatter
+        if (products.indexOf(category) === -1) {
+          createPage({
+            path: `/products/${_.kebabCase(category)}/`,
+            component: path.resolve(`src/templates/products.js`),
+            context: {
+              category
+            },
+          })
+          products.push(category)
+        }
       }
       createPage({
         path: edge.node.fields.slug,
@@ -46,30 +60,6 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context
-      })
-    })
-
-    // Tag pages:
-    let tags = []
-    // Iterate through each post, putting all found tags into `tags`
-    posts.forEach((edge) => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
-      }
-    })
-    // Eliminate duplicate tags
-    tags = _.uniq(tags)
-
-    // Make tag pages
-    tags.forEach((tag) => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
-
-      createPage({
-        path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
-        context: {
-          tag,
-        },
       })
     })
   })

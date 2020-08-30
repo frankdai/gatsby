@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
 import logo from '../img/logo.jpeg'
 import SubMenuService from "./SubMenuService";
 
@@ -11,7 +10,8 @@ const Navbar = class extends React.Component {
       active: false,
       navBarActiveClass: '',
       showServiceSubMenu: false,
-      showQualitySubMenu: false
+      showQualitySubMenu: false,
+      showProductSubMenu: false
     }
     this.onMouseOver = (name) => {
       this.setState({
@@ -47,12 +47,26 @@ const Navbar = class extends React.Component {
               <Link className="mtor-navbar-item" to="/about">
                 About
               </Link>
-              {/*<Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>*/}
+              <div className="mtor-navbar-item has-sub-menu" onMouseEnter={() => this.onMouseOver('Product')} onMouseLeave={() => this.onMouseLeave('Product')}>
+                <div>Products</div>
+                <ul className="mtor-sub-menu" style={{display: this.state.showProductSubMenu?'block':'none'}}>
+                  <li>
+                    <Link className="mtor-sub-menu-item" to="/products/residential">
+                      Residential
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="mtor-sub-menu-item" to="/products/commercial">
+                      Commercial
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="mtor-sub-menu-item" to="/products/industrial">
+                      Industrial
+                    </Link>
+                  </li>
+                </ul>
+              </div>
               <Link className="mtor-navbar-item" to="/contact">
                 Contact
               </Link>

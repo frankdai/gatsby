@@ -10,6 +10,7 @@ export const ServiceTemplate = ({
   contentComponent,
   description,
   title,
+  contentType
 }) => {
   const PostContent = contentComponent || Content
 
@@ -18,7 +19,7 @@ export const ServiceTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <img src={image} style={{display: 'block', maxWidth: '100%'}}/>
+            <img src={image} style={{display: contentType === 'manufacturing'?'none':'block', maxWidth: '100%'}}/>
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
@@ -48,6 +49,7 @@ const ServicePage = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         title={post.frontmatter.title}
+        contentType={post.contentType}
       />
     </Layout>
   )
@@ -70,6 +72,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        contentType
       }
     }
   }

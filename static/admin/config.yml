@@ -34,9 +34,25 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service"}
       - {label: "Content Type", name: "contentType", widget: "select", options: ["service", "quality", "manufacturing"]}
-      - {label: "Featured Image", name: "featuredimage", widget: image, required: false}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Featured Image", name: "featuredImage", widget: image, required: true}
+      - {label: "Image 1", name: "image1", widget: image, required: false}
+      - {label: "Image 2", name: "image2", widget: image, required: false}
+      - {label: "Image 3", name: "image3", widget: image, required: false}
+      - {label: "Image 4", name: "image4", widget: image, required: false}
+      - {label: "Image 5", name: "image5", widget: image, required: false}
+  - name: "product"
+      label: "Product"
+      folder: "src/pages/products"
+      create: true
+      slug: "{{slug}}"
+      fields:
+        - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
+        - {label: "Content Type", name: "contentType", widget: "select", options: ["residential", "commercial", "industrial"]}
+        - {label: "Featured Image", name: "featuredimage", widget: image, required: true}
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     files:
