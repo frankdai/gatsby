@@ -1,5 +1,5 @@
 import React from 'react'
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import Img from 'gatsby-image'
 
 const ImagesRotate = class extends React.Component {
   constructor(props) {
@@ -38,13 +38,7 @@ const ImagesRotate = class extends React.Component {
       <div className="image-rotate">
         <button className="button" onClick={this.goToPrev.bind(this)}>{'<-Prev'}</button>
         <div className="image-center">
-          <PreviewCompatibleImage
-            imageInfo={{
-              style: {maxWidth: '400px'},
-              image: currentImage,
-              alt: `image`,
-            }}
-          />
+          <img src={currentImage.childImageSharp.fixed.src} alt={this.state.currentIndex}/>
         </div>
         <button className="button" onClick={this.goToNext.bind(this)}>{'Next->'}</button>
       </div>

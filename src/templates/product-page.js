@@ -94,36 +94,36 @@ export const productPageQuery = graphql`
         }
         image1 {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed(height: 300) {
+              src
             }
           }
         }
         image2 {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed(height: 300) {
+              src
             }
           }
         }
         image3 {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed(height: 300) {
+              src
             }
           }
         }
         image4 {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed(height: 300) {
+              src
             }
           }
         }
         image5 {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fixed(height: 300) {
+              src
             }
           }
         }
