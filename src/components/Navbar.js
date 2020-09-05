@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import logo from '../img/logo.jpeg'
+import logo from '../img/logo.png'
 import SubMenuService from "./SubMenuService";
 
 const Navbar = class extends React.Component {
