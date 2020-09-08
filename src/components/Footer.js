@@ -10,8 +10,8 @@ const Footer = class extends React.Component {
         <div className="content has-text-white-ter">
           <div className="container has-text-white-ter">
             <p>Copyright © 2020 Metallor Co.Ltd. All rights reserved</p>
-            <p>Tel:+86-551-12334567</p>
-            <p>Address:Room 321, Hefei, Anhui, P.R.CHINA</p>
+            <p>Address: ALIC Center, 8 Tianda Road, Hefei, Anhui, China</p>
+            <p>Email: sid@metalloroem.com</p>
           </div>
         </div>
       </footer>

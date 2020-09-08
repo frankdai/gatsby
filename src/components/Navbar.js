@@ -33,7 +33,10 @@ const Navbar = class extends React.Component {
       >
         <div className="container" style={{padding: '1em'}}>
           <Link to="/" title="Logo">
-            <img src={logo} alt="Metallor" style={{ width: '88px' }} />
+            <img src={logo} alt="Metallor" style={{ width: '150px' }} />
+          </Link>
+          <Link style={{float: 'right', 'margin-top': '32px'}} to="/contact">
+            Contact Us
           </Link>
         </div>
         <div className="mtor-navbar-container">
@@ -67,9 +70,6 @@ const Navbar = class extends React.Component {
                   </li>
                 </ul>
               </div>
-              <Link className="mtor-navbar-item" to="/contact">
-                Contact
-              </Link>
               <Link className="mtor-navbar-item" to="/manufacturing">
                 Manufacturing
               </Link>
